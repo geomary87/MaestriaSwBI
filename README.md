@@ -1,10 +1,8 @@
 # MaestriaSwBI
 Proyecto BI-Análisis de Sentimientos
-PROYECTO 
 DISEÑO E IMPLEMENTACION DE UN SISTEMA CLASIFICADOR DE SENTIMIENTOS
 Daniel Viera, Geovanna Chela, Edwin Patiño
 ===============================================================================================================
-
 PROCESO:
 1. Archivo inicial de comentarios para entrenamiento y pruebas.
 
@@ -27,8 +25,7 @@ PROCESO:
 
 6. Se procede a generar de data set de entrenamiento considerando el data set, atributos (con sus respectivos pesos) y diccionario.
 
-7. Entrenamos nuestro data set en Weca para diferente número de instancias
-
+7. Entrenamos nuestro data set en Weka para diferente número de instancias
 
 PREGUNTAS:
 1. Cuando se alcanza la mejor precisión?
@@ -51,7 +48,7 @@ Nuestro sistema queda sobreajustado a las características específicas de los d
 Hay que considerar que cuando los atributos son continuos y se utiliza el clasificador de Bayes, es necesario discretizar (dividir cada una de las zonas en N y M intervalos respectivamente, e ir analizando la función en esos puntos concretos) dichos datos.
 El método de discretización tiende a ser mejor si hay una gran cantidad de datos de entrenamiento, ya que va a aprender para adaptarse a la distribución de los datos, sin embargo el proceso de discretizar puede afectar el rendimiento del clasificador
 
-7.Comparar los diferentes algoritmos con su conjunto de datos y determinar cuál de ellos es el que mejor
+7. Comparar los diferentes algoritmos con su conjunto de datos y determinar cuál de ellos es el que mejor?
 Naives 99.2625 %
 J48    99.41   % 
 LMT    98.8201 %
@@ -60,15 +57,15 @@ El valor más alto es J48, sin embargo, no es posible determinar cual es mejor s
 
 8. ¿Es mejor utilizar validación cruzada (cross-validation) o un test dataset para realizar la evaluación del clasificador? ¿Por qué? 
 El método entrenamiento/test tiene el problema de tener una alta variabilidad si el tamaño del conjunto es pequeño, por lo que se recomienda el uso de la validación cruzada que es una especie de entrenamiento/test repetido en el que las particiones de test nunca solapan. De hecho, todos los datos figuran como entrenamiento o test en alguno de los ciclos de validación cruzada. Las particiones de test de los distintos ciclos son independientes (no solapan)
-=======================================================================================================================================
+===============================================================================================================================
 
 DISCUSIÓN DE PRUEBAS
-1. De 678 instancias se dispone 177 positivos,  87 negativos y 414 neutros por tal razón los datos considerados en nuestro training set contiene datos neutrales en su mayor porcentaje por tal razón puede verse sesgado el análisis con un nuevo test set.
-2. Se dispone de un 99.2625 % con Naives siendo el atributo con mayor peso los atribuos de polaridad los cuales disminuyen a  66.0767 %.
-3. Se disponde de 10 en cross validation de un total de 678 instancias que no se ven afectadas al ser modificadas (overfitting).
+1. De 678 instancias se dispone de instancias 177 positivos,  87 negativos y 414 neutros por tal razón los datos considerados en nuestro training set contiene datos neutrales en su mayor porcentaje por tal razón puede verse sesgado el análisis con un nuevo test set.
+2. Se dispone de un 99.2625 % con Naives siendo el atributo con mayor peso los atributos de polaridad los cuales disminuyen a  66.0767 % si son eliminados como atributos en Weka.
+3. Se utiliza 10 en cross validation de un total de 678 instancias que no se ven afectadas al ser modificadas (overfitting).
 4. Se obtiene 5 instancias incorrectas.
 
-=======================================================================================================================================
+================================================================================================================================
 
 CONCLUSIONES
 
@@ -78,7 +75,7 @@ CONCLUSIONES
 4. Al no efectuarse un test de nuestro modelo queda sesgada el análisis en datos reales. Sólo se obtiene el % de entrenamiento utilizando el cross-validation.
 
 
-=======================================================================================================================================
+================================================================================================================================
 
 INSTALACION
 
@@ -91,4 +88,4 @@ Para el correcto funcionamiento de nuestra aplicación se debe seguir las siguie
 	-A estos resultados obtenidos se suma los valores de los diferentes atributos.
 	-Para la clasificación se toma los valores obtenidos previamente, de la siguiente manera: si la suma es mayor que cero  la clase será positiva; si la suma es igual a cero la clase será neutro; si la sumatoria da un valor menor a cero la clasificación será negativa.
 
-=========================================================================================================================================
+================================================================================================================================
